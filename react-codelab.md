@@ -1,5 +1,5 @@
 summary: React Codelab
-id: react-codelab
+id: docs
 categories: React Workshop
 tags: react
 status: Published

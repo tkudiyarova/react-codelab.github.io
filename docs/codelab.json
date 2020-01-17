@@ -3,8 +3,8 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-01-17T22:18:48+13:00",
-  "id": "react-codelab",
+  "updated": "2020-01-17T22:45:21+13:00",
+  "id": "docs",
   "duration": 7,
   "title": "React Tutorial",
   "authors": "Tatiana",
@@ -20,5 +20,5 @@
   "tags": [
     "react"
   ],
-  "url": "react-codelab"
+  "url": "docs"
 }
