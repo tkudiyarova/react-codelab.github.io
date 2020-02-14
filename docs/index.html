@@ -27,38 +27,212 @@
                   environment="web"
                   feedback-link="">
     
-      <google-codelab-step label="Overview" duration="1">
-        <h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
-<ul class="checklist">
-<li>Setting up the environment</li>
-<li>Code Snippets</li>
-<li>Other Stuff</li>
+      <google-codelab-step label="Introduction" duration="1">
+        <h2 is-upgraded>What is React</h2>
+<ul>
+<li>React is a JavaScript library for building use interfaces.</li>
+<li>React is an open-source project created by Facebook.</li>
+<li>React is used to build single page applications.</li>
+<li>React allows us to create reusable UI components.</li>
 </ul>
+<h2 is-upgraded>How does React work?</h2>
+<p>React creates a Virtual DOM in memory. Instead of manipulating the browser&#39;s DOM directly, React creates a virtual DOM in memory, where it does all the necessary manipulating, before making the changes in the browser DOM. React only changes what needs to be changed.</p>
+<h2 is-upgraded>ReactJS History</h2>
+<ul>
+<li>Current version of ReactJS is v16.8.6 (March 2019).</li>
+<li>Initial Release to the Public (v0.3.0) was in July 2013.</li>
+<li>ReactJS was first used in 2011 for Facebook&#39;s Newsfeed feature.</li>
+<li>Facebook Software Engineer, Jordan Walke, created it.</li>
+</ul>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Basic familiarity with <a href="https://internetingishard.com/" target="_blank">HTML and CSS</a>.</li>
+<li>Basic knowledge of <a href="https://www.digitalocean.com/community/tutorial_series/how-to-code-in-javascript" target="_blank">JavaScript</a> and programming.</li>
+<li>Basic understanding of the <a href="https://www.taniarascia.com/introduction-to-the-dom/" target="_blank">DOM</a>.</li>
+<li>Familiarity with <a href="https://www.taniarascia.com/es6-syntax-and-feature-overview/" target="_blank">ES6 syntax and features</a>.</li>
+<li><a href="https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/" target="_blank">Node.js and npm</a> installed globally.</li>
+</ul>
+<h2 class="checklist" is-upgraded>What you&#39;ll learn</h2>
+<ul class="checklist">
+<li>JSX - the basic syntax of ReactJS</li>
+<li>ES6 - 6th version of ECMAScript</li>
+<li>React Components - the building blocks of all ReactJS applications</li>
+<li>Components Interacting - how React components interact with each other</li>
+</ul>
+<h2 is-upgraded>What you&#39;ll build</h2>
+<p>In this codelab, you are going to build a simple ReactJS app that demonstrates the concepts learned above.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Setting up the environment" duration="2">
-        <p>Information about how to set up the environment</p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Code Snippets" duration="3">
-        <p>Some code snippets</p>
-<h2 is-upgraded>JavaScript</h2>
-<pre><code>{
-  key1: &#34;value1&#34;,
-  key2: &#34;value2&#34;,
-  key3: &#34;value3&#34;
-}
+        <p>In our lab we will be using <a href="https://github.com/facebook/create-react-app" target="_blank">create-react-app</a>, a tool that allows you to create an environment with everything you need to build a React app. If you have NPM and Node.js installed, you can create a React application by first installing the create-react-app.</p>
+<p>To install create-react-app run the following command in your terminal:</p>
+<pre><code>npm install -g create-react-app
 </code></pre>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Other Stuff" duration="1">
-        <p>Other useful things here</p>
+      <google-codelab-step label="Creating and running a React application" duration="2">
+        <p>To create a React application named <code>react-lab</code> run the following command in your terminal:</p>
+<pre><code>create-react-app react-lab
+</code></pre>
+<p>Once that finishes installing, move to the newly created directory and start the project:</p>
+<pre><code>cd react-lab
+npm start
+</code></pre>
+<p>A new browser window will pop up with your newly created React App. If not, open your browser and type <code>localhost:3000</code> in the address bar.</p>
+<p>The result: <img alt="Running React App" src="img/c3286de181d786b3.jpg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Modifying the React application" duration="5">
+        <p>Go inside the <code>code-lab</code> directory, and you will find a <code>src</code> folder. Inside the <code>src</code> folder there is a file called <code>App.js</code>, open it and it will look like this:</p>
+<p class="image-container"><img alt="Content of App.js file" src="img/df1f65d57bfc238c.jpg"></p>
+<p>Try changing the HTML content and save the file.</p>
+<p>Notice that the changes are visible immediately after you save the file, you don&#39;t have to reload the browser.</p>
+<pre><code>Example
+
+Replace all the content inside the &lt;div className=&#34;App&#34;&gt; with a &lt;h1&gt; element.
+See the changes in the browser when you click Save.
+
+import React from &#39;react&#39;;
+
+function App() {
+  return (
+    &lt;div className=&#34;App&#34;&gt;
+      &lt;h1&gt;Hello World!&lt;h1&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code></pre>
+<p>The result should be: <img alt="Hello World!" src="img/d81d13963d992e57.jpg"></p>
+<p>React&#39;s goal is in many ways to render HTML in a web page. React renders HTML to the web page by using a function called <code>ReactDOM.render()</code>. The <code>ReactDOM.render()</code> function takes two arguments, HTML code and an HTML element. The purpose of the function is to display the specified HTML code inside the specified HTML element.</p>
+<pre><code>Example
+
+Display a paragraph inside the &#34;root&#34; element:
+ReactDOM.render(&lt;p&gt;Hello&lt;/p&gt;, document.getElementById(&#39;root&#39;));
+
+The result is displayed in the &lt;div id=&#34;root&#34;&gt; element:
+&lt;body&gt;
+  &lt;div id=&#34;root&#34;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="JSX" duration="5">
+        <p>You probably noticed, we have been using what looks like HTML in our React code, but it is not quite HTML. This is JSX, which stands for JavaScript XML.</p>
+<p>With JSX, we can write what looks like HTML, and also we can create and use our own XML-like tags.</p>
+<p>Here&#39;s what JSX looks like assigned to a variable:</p>
+<pre><code>const heading = &lt;h1 className=&#34;site-heading&#34;&gt;Hello, React&lt;/h1&gt;
+</code></pre>
+<p>You are not required to use JSX, but JSX makes it easier to write and add HTML in React. Under the hood, it is running createElement()  and/or appendChild() methods.</p>
+<pre><code>Example with JSX:
+
+const myelement = &lt;h1&gt;I Love JSX!&lt;/h1&gt;;
+ReactDOM.render(myelement, document.getElementById(&#39;root&#39;));
+</code></pre>
+<pre><code>Example without JSX:
+
+const myelement = React.createElement(&#39;h1&#39;, {}, &#39;I do not use JSX!&#39;);
+ReactDOM.render(myelement, document.getElementById(&#39;root&#39;));
+</code></pre>
+<p>JavaScript expressions can also be embedded inside JSX using curly braces, including variables, functions, and properties.</p>
+<pre><code>const name = &#39;Tatiana&#39;
+const heading = &lt;h1&gt;Hello, {name}&lt;/h1&gt;
+</code></pre>
+<p>JSX is easier to write and understand than creating and appending many elements in vanilla JavaScript, and is one of the reasons people love React so much.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="ES6" duration="5">
+        <p>ES6 stands for ECMAScript 6.</p>
+<p>ECMAScript was created to standardize Javascript, and ES6 is the 6th version of ECMAScript, it was published in 2015, and is also known as ECMAScript 2015.</p>
+<p>React uses ES6, and you provides some features like:</p>
+<ul>
+<li>Classes</li>
+<li>Arrow functions</li>
+<li>Variables (les, const, var)</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="React Components" duration="3">
+        <p>Almost everything is React consists of components. Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and returns HTML via a render function. Components come in two types, Class components and Function components. Most React apps have many small components, and everything loads into the main <code>App</code> component. Components also often get their own file. Currently we have only one component <code>App</code>. So, let&#39;s change up our project and implement more components.</p>
+<p>let&#39;s create a table. Make <code>Table.js</code> inside <code>src</code> folder, and fill it with the following data:</p>
+<pre><code>import React from &#39;react&#39;
+
+const Table = () =&gt; {
+  return (
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Name&lt;/th&gt;
+          &lt;th&gt;Age&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Charlie&lt;/td&gt;
+          &lt;td&gt;21&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Celeste&lt;/td&gt;
+          &lt;td&gt;22&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Morne&lt;/td&gt;
+          &lt;td&gt;23&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Pavan&lt;/td&gt;
+          &lt;td&gt;24&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  )
+}
+
+export default Table
+</code></pre>
+<p>Inside the <code>App.js</code> file import it in: <code>import Table from &#39;./Table&#39;</code></p>
+<p>And change the content of <code>App.js</code> file:</p>
+<pre><code>import React from &#39;react&#39;;
+
+import &#39;./App.css&#39;;
+import Table from &#39;./Table&#39;
+
+
+function App() {
+  return (
+    &lt;div className=&#34;App&#34;&gt;
+      &lt;Table /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conclusion" duration="3">
+        <p>I hope this lab gave you a good introduction to React. There is much more to learn and do with React, such as:</p>
+<ul>
+<li>Hooks</li>
+<li>Redux</li>
+<li>Saga</li>
+<li>Getting data from API</li>
+</ul>
 
 
       </google-codelab-step>
